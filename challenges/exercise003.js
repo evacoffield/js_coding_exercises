@@ -9,7 +9,21 @@ function getSquares(nums) {
 
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
-  // Your code here!
+
+  function toCamelCase(str) {
+    return str.toLowerCase().replace(/(?:(^.)|(\s+.))/g, function (match) {
+      return match.charAt(match.length - 1).toUpperCase();
+    });
+  }
+  let newWord;
+  for (let key in words) {
+    if (key == 0) {
+      newWord = words[key];
+    } else {
+      newWord = newWord + toCamelCase(words[key]);
+    }
+  }
+  return newWord;
 }
 
 function getTotalSubjects(people) {
