@@ -40,7 +40,7 @@ function getTotalSubjects(people) {
 function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
-  
+
   for (let key in menu) {
     let ingredientExists = menu[key].ingredients.includes(ingredient);
     if (ingredientExists == true) {
@@ -53,14 +53,14 @@ function checkIngredients(menu, ingredient) {
 function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
-  
+
   let duplicates = [];
-  let numbers = arr1.filter(function(val) {
+  let numbers = arr1.filter(function (val) {
     return arr2.indexOf(val) != -1;
   });
   duplicates = [...new Set(numbers)].sort();
   console.log(duplicates);
-  return(duplicates)
+  return (duplicates)
 }
 
 module.exports = {
