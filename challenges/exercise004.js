@@ -97,11 +97,16 @@ function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
 
   const squareRoots = [];
-  for (let i = 0; i < nums.length; i++) {
-    const num = nums[i];
-    const squareRoot = Math.round(Math.sqrt(num) * 100) / 100;
+  nums.forEach(function (item) {
+    const squareRoot = Math.round(Math.sqrt(item) * 100) / 100;
     squareRoots.push(squareRoot);
-  }
+  })
+  // For loop example
+  // for (let i = 0; i < nums.length; i++) {
+  //   const num = nums[i];
+  //   const squareRoot = Math.round(Math.sqrt(num) * 100) / 100;
+  //   squareRoots.push(squareRoot);
+  // }
   return squareRoots;
 }
 
