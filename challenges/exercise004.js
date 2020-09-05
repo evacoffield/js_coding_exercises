@@ -1,5 +1,6 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
+
   const smallNums = [];
   for (let i = 0; i < nums.length; i++) {
     const num = nums[i];
@@ -13,6 +14,7 @@ function findSmallNums(nums) {
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
+
   const matchingNames = [];
   for (let i = 0; i < names.length; i++) {
     const name = names[i];
@@ -25,6 +27,7 @@ function findNamesBeginningWith(names, char) {
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
+
   const verbs = [];
   for (let i = 0; i < words.length; i++) {
     const word = words[i];
@@ -37,7 +40,7 @@ function findVerbs(words) {
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+
   const integers = [];
   for (let i = 0; i < nums.length; i++) {
     if (Number.isInteger(nums[i])) {
@@ -49,6 +52,7 @@ function getIntegers(nums) {
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
+
   const cities = [];
   for (let i = 0; i < users.length; i++) {
     const cityName = users[i].data.city.displayName;
@@ -59,7 +63,14 @@ function getCities(users) {
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
+
+  const squareRoots = [];
+  for (let i = 0; i < nums.length; i++) {
+    const num = nums[i];
+    const squareRoot = Math.round(Math.sqrt(num) * 100) / 100;
+    squareRoots.push(squareRoot);
+  }
+  return squareRoots;
 }
 
 function findSentencesContaining(sentences, str) {
