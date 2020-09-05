@@ -62,11 +62,18 @@ function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
 
   const integers = [];
-  for (let i = 0; i < nums.length; i++) {
-    if (Number.isInteger(nums[i])) {
-      integers.push(nums[i]);
+  nums.forEach(function (num) {
+    if (Number.isInteger(num)) {
+      integers.push(num);
     }
-  }
+  })
+
+  // For loop example
+  // for (let i = 0; i < nums.length; i++) {
+  //   if (Number.isInteger(nums[i])) {
+  //     integers.push(nums[i]);
+  //   }
+  // }
   return integers;
 }
 
