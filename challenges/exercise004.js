@@ -2,12 +2,19 @@ function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
 
   const smallNums = [];
-  for (let i = 0; i < nums.length; i++) {
-    const num = nums[i];
+  nums.forEach(function (num) {
     if (num < 1) {
       smallNums.push(num);
     }
-  }
+  });
+
+  // For loop example
+  // for (let i = 0; i < nums.length; i++) {
+  //   const num = nums[i];
+  //   if (num < 1) {
+  //     smallNums.push(num);
+  //   }
+  // }
   return smallNums;
 }
 
