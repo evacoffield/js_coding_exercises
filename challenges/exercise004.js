@@ -115,12 +115,18 @@ function findSentencesContaining(sentences, str) {
   if (!str) throw new Error("str is required");
 
   const matchingSentences = [];
-  for (let i = 0; i < sentences.length; i++) {
-    const sentence = sentences[i];
-    if (sentence.toLowerCase().includes(str.toLowerCase())) {
-      matchingSentences.push(sentence);
+  sentences.forEach(function (item) {
+    if (item.toLowerCase().includes(str.toLowerCase())) {
+      matchingSentences.push(item);
     }
-  }
+  })
+  // For loop example
+  // for (let i = 0; i < sentences.length; i++) {
+  //   const sentence = sentences[i];
+  //   if (sentence.toLowerCase().includes(str.toLowerCase())) {
+  //     matchingSentences.push(sentence);
+  //   }
+  // }
   return matchingSentences;
 }
 
