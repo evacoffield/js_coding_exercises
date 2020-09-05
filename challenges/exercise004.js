@@ -1,9 +1,9 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
 
-  // using map, get each number in nums
+  // using filter, get each number in nums
   // FILTER nums to find num < 1
-  // return the result of map
+  // return the result of filter
   const smallNums = nums.filter(function (item) {
     if (item < 1) {
       return item;
@@ -31,9 +31,9 @@ function findSmallNums(nums) {
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  // using map, get each item in names
+  // using filter, get each item in names
   // FILTER items to find items begenning with char
-  // return the result of map
+  // return the result of filter
   const matchingNames = names.filter(function (item) {
     if (item.substring(0, 1) == char) {
       return item;
@@ -60,9 +60,9 @@ function findNamesBeginningWith(names, char) {
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  // using map, get each item in words
+  // using filter, get each item in words
   // FILTER items to find items beginning with 'to '
-  // return the result of map
+  // return the result of filter
   const verbs = words.filter(function (item) {
     if (item.substring(0, 3) == 'to ') {
       return item;
@@ -89,9 +89,9 @@ function findVerbs(words) {
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  // using map, get each item in nums
+  // using filter, get each item in nums
   // FILTER items to find only integers 
-  // return the result of map
+  // return the result of filter
   const integers = nums.filter(function (num) {
     if (Number.isInteger(num)) {
       return num;
@@ -142,12 +142,20 @@ function getCities(users) {
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
+  // using map, get each item in nums
+  // Transform items, gets the square root of each number to 2 decimal places
+  // return the result of map
+  const squareRoots = nums.map(function (num) {
+    const squareRoot = Math.round(Math.sqrt(num) * 100) / 100;
+    return squareRoot;
+  });
+  // ForEach example
+  // const squareRoots = [];
+  // nums.forEach(function (item) {
+  //   const squareRoot = Math.round(Math.sqrt(item) * 100) / 100;
+  //   squareRoots.push(squareRoot);
+  // })
 
-  const squareRoots = [];
-  nums.forEach(function (item) {
-    const squareRoot = Math.round(Math.sqrt(item) * 100) / 100;
-    squareRoots.push(squareRoot);
-  })
   // For loop example
   // for (let i = 0; i < nums.length; i++) {
   //   const num = nums[i];
