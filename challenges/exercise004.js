@@ -168,13 +168,23 @@ function getSquareRoots(nums) {
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-
-  const matchingSentences = [];
-  sentences.forEach(function (item) {
+  // using filter, get each sentence in sentences
+  // FILTER sentences to find only sentences containing the specified string
+  // return the result of filter
+  const matchingSentences = sentences.filter(function (item) {
     if (item.toLowerCase().includes(str.toLowerCase())) {
-      matchingSentences.push(item);
+      return item;
     }
-  })
+  });
+
+  // ForEach example
+  // const matchingSentences = [];
+  // sentences.forEach(function (item) {
+  //   if (item.toLowerCase().includes(str.toLowerCase())) {
+  //     matchingSentences.push(item);
+  //   }
+  // })
+
   // For loop example
   // for (let i = 0; i < sentences.length; i++) {
   //   const sentence = sentences[i];
