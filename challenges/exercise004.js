@@ -1,12 +1,22 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
 
-  const smallNums = [];
-  nums.forEach(function (num) {
-    if (num < 1) {
-      smallNums.push(num);
+  // using map, get each number in nums
+    // FILTER nums and return num < 1
+  // return the result of map
+  const smallNums = nums.filter(function(item) {
+    if (item < 1) {
+      return item;
     }
   });
+
+  // ForEach example
+  // const smallNums = [];
+  // nums.forEach(function (num) {
+  //   if (num < 1) {
+  //     smallNums.push(num);
+  //   }
+  // });
 
   // For loop example
   // for (let i = 0; i < nums.length; i++) {
