@@ -2,9 +2,9 @@ function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
 
   // using map, get each number in nums
-    // FILTER nums and return num < 1
+  // FILTER nums and return num < 1
   // return the result of map
-  const smallNums = nums.filter(function(item) {
+  const smallNums = nums.filter(function (item) {
     if (item < 1) {
       return item;
     }
@@ -31,10 +31,10 @@ function findSmallNums(nums) {
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  // using map, get each number in nums
-    // FILTER items and return items begening with char
+  // using map, get each item in names
+  // FILTER items and return items begenning with char
   // return the result of map
-  const matchingNames = names.filter(function(item) {
+  const matchingNames = names.filter(function (item) {
     if (item.substring(0, 1) == char) {
       return item;
     }
@@ -60,13 +60,23 @@ function findNamesBeginningWith(names, char) {
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-
-  const verbs = [];
-  words.forEach(function (item) {
+  // using map, get each item in words
+  // FILTER items and return items beginning with 'to '
+  // return the result of map
+  const verbs = words.filter(function (item) {
     if (item.substring(0, 3) == 'to ') {
-      verbs.push(item);
+      return item;
     }
   })
+
+  // ForEach example
+  // const verbs = [];
+  // words.forEach(function (item) {
+  //   if (item.substring(0, 3) == 'to ') {
+  //     verbs.push(item);
+  //   }
+  // })
+
   // For loop example
   // for (let i = 0; i < words.length; i++) {
   //   const word = words[i];
