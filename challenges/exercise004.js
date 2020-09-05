@@ -31,13 +31,22 @@ function findSmallNums(nums) {
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-
-  const matchingNames = [];
-  names.forEach(function (item) {
+  // using map, get each number in nums
+    // FILTER items and return items begening with char
+  // return the result of map
+  const matchingNames = names.filter(function(item) {
     if (item.substring(0, 1) == char) {
-      matchingNames.push(item);
+      return item;
     }
-  })
+  });
+
+  // ForEach example
+  // const matchingNames = [];
+  // names.forEach(function (item) {
+  //   if (item.substring(0, 1) == char) {
+  //     matchingNames.push(item);
+  //   }
+  // })
 
   // For loop example
   // for (let i = 0; i < names.length; i++) {
