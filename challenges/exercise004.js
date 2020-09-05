@@ -81,10 +81,15 @@ function getCities(users) {
   if (!users) throw new Error("users is required");
 
   const cities = [];
-  for (let i = 0; i < users.length; i++) {
-    const cityName = users[i].data.city.displayName;
+  users.forEach(function (item) {
+    const cityName = item.data.city.displayName;
     cities.push(cityName);
-  }
+  })
+  // For loop example
+  // for (let i = 0; i < users.length; i++) {
+  //   const cityName = users[i].data.city.displayName;
+  //   cities.push(cityName);
+  // }
   return cities;
 }
 
