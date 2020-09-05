@@ -197,11 +197,18 @@ function findSentencesContaining(sentences, str) {
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
+  // using map, get each sentence in sentences
+  // MAP items and return the longest side of each set of triangle data
+  // return the result of map
+  const longestSides = triangles.map(function (item) {
+    return Math.max(...item);
+  });
 
-  const longestSides = [];
-  triangles.forEach(function (item) {
-    longestSides.push(Math.max(...item));
-  })
+  // ForEach example
+  // const longestSides = [];
+  // triangles.forEach(function (item) {
+  //   longestSides.push(Math.max(...item));
+  // })
 
   // For loop example
   // for (let i = 0; i < triangles.length; i++) {
