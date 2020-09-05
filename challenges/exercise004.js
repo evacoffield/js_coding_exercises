@@ -76,6 +76,7 @@ function getSquareRoots(nums) {
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
+
   const matchingSentences = [];
   for (let i = 0; i < sentences.length; i++) {
     const sentence = sentences[i];
@@ -88,7 +89,12 @@ function findSentencesContaining(sentences, str) {
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  // Your code here
+
+  const longestSides = [];
+  for (let i = 0; i < triangles.length; i++) {
+    longestSides.push(Math.max(...triangles[i]));
+  }
+  return longestSides;
 }
 
 module.exports = {
