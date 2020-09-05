@@ -117,12 +117,21 @@ function getIntegers(nums) {
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-
-  const cities = [];
-  users.forEach(function (item) {
+  // using map, get each item in users
+  // MAP items and return city names of each user
+  // return the result of map
+  const cities = users.map(function (item) {
     const cityName = item.data.city.displayName;
-    cities.push(cityName);
-  })
+    return cityName;
+  });
+
+  // ForEach example
+  // const cities = [];
+  // users.forEach(function (item) {
+  //   const cityName = item.data.city.displayName;
+  //   cities.push(cityName);
+  // })
+
   // For loop example
   // for (let i = 0; i < users.length; i++) {
   //   const cityName = users[i].data.city.displayName;
