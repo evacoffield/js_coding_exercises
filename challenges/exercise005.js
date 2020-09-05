@@ -46,7 +46,14 @@ const reverseNumber = n => {
 
 const sumArrays = arrs => {
   if (arrs === undefined) throw new Error("arrs is required");
-  // Your code here!
+  let sum = 0;
+  for (let key in arrs){
+    const subArr = arrs[key];
+    for(let key in subArr) { 
+      sum += subArr[key]; 
+    }
+  }
+  return(sum);
 };
 
 const arrShift = arr => {
