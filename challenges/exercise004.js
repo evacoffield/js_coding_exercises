@@ -23,12 +23,19 @@ function findNamesBeginningWith(names, char) {
   if (!char) throw new Error("char is required");
 
   const matchingNames = [];
-  for (let i = 0; i < names.length; i++) {
-    const name = names[i];
-    if (name.substring(0, 1) == char) {
-      matchingNames.push(name);
+  names.forEach(function (item) {
+    if (item.substring(0, 1) == char) {
+      matchingNames.push(item);
     }
-  }
+  })
+
+  // For loop example
+  // for (let i = 0; i < names.length; i++) {
+  //   const name = names[i];
+  //   if (name.substring(0, 1) == char) {
+  //     matchingNames.push(name);
+  //   }
+  // }
   return matchingNames;
 }
 
@@ -36,12 +43,18 @@ function findVerbs(words) {
   if (!words) throw new Error("words is required");
 
   const verbs = [];
-  for (let i = 0; i < words.length; i++) {
-    const word = words[i];
-    if (word.substring(0, 3) == 'to ') {
-      verbs.push(word);
+  words.forEach(function (item) {
+    if (item.substring(0, 3) == 'to ') {
+      verbs.push(item);
     }
-  }
+  })
+  // For loop example
+  // for (let i = 0; i < words.length; i++) {
+  //   const word = words[i];
+  //   if (word.substring(0, 3) == 'to ') {
+  //     verbs.push(word);
+  //   }
+  // }
   return verbs;
 }
 
