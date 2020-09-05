@@ -40,7 +40,8 @@ const count1sand0s = str => {
 }
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
-  // Your code here!
+  const reversedNum = n => Number(n.toString().split('').reverse().join('')) * Math.sign(n);
+  return(reversedNum(n));
 };
 
 const sumArrays = arrs => {
