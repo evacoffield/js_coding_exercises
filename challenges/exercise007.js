@@ -4,6 +4,11 @@
  */
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
+  if (typeof n !== 'number') throw new Error("a number is required");
+  if (Math.sign(n) === -1) throw new Error("n must be a positive integer");
+
+  const sum = n.toString().split('').map((i) => { return Number(i); });
+  return sum.reduce((total, num) => total + num, 0);
 };
 
 /**
