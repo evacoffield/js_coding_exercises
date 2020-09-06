@@ -62,3 +62,77 @@ describe("createRange", () => {
         expect(createRange(10, 15, 2)).toEqual([10, 12, 14]);
     });
 });
+
+
+describe("getScreentimeAlertList", () => {
+    test("return error with an empty arguments", () => {
+        expect(() => { getScreentimeAlertList(); }).toThrow("users is required");
+    });
+    test("return error if not passed a date", () => {
+        const users = [
+            {
+                username: "beth_1234",
+                name: "Beth Smith",
+                screenTime: [
+                    { date: "2019-05-01", usage: { twitter: 34, instagram: 22, facebook: 40 } },
+                    { date: "2019-05-02", usage: { twitter: 56, instagram: 40, facebook: 31 } },
+                    { date: "2019-05-03", usage: { twitter: 12, instagram: 15, facebook: 19 } },
+                    { date: "2019-05-04", usage: { twitter: 10, instagram: 56, facebook: 61 } },
+                ]
+            }
+        ];
+        expect(() => {
+            getScreentimeAlertList(users);
+        }).toThrow("date is required");
+    });
+
+    test("return array of usernames with over 100 minutes screentime on a given date", () => {
+        const users = [
+            {
+                username: "beth_1234",
+                name: "Beth Smith",
+                screenTime: [
+                    { date: "2019-05-01", usage: { twitter: 34, instagram: 22, facebook: 40 } },
+                    { date: "2019-05-02", usage: { twitter: 56, instagram: 40, facebook: 31 } },
+                    { date: "2019-05-03", usage: { twitter: 12, instagram: 15, facebook: 19 } },
+                    { date: "2019-05-04", usage: { twitter: 10, instagram: 56, facebook: 61 } },
+                ]
+            },
+            {
+                username: "sam_j_1989",
+                name: "Sam Jones",
+                screenTime: [
+                    { date: "2019-06-11", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 10 } },
+                    { date: "2019-06-13", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 16 } },
+                    { date: "2019-06-14", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 31 } },
+                ]
+            }
+        ];
+        expect(getScreentimeAlertList(users, "2019-05-04")).toEqual(["beth_1234"]);
+    });
+    test("return array of usernames with over 100 minutes screentime on a given date", () => {
+        const users = [
+            {
+                username: "beth_1234",
+                name: "Beth Smith",
+                screenTime: [
+                    { date: "2019-05-01", usage: { twitter: 34, instagram: 22, facebook: 40 } },
+                    { date: "2019-05-02", usage: { twitter: 56, instagram: 40, facebook: 31 } },
+                    { date: "2019-05-03", usage: { twitter: 12, instagram: 15, facebook: 19 } },
+                    { date: "2019-05-04", usage: { twitter: 10, instagram: 56, facebook: 61 } },
+                    { date: "2019-06-14", usage: { twitter: 20, instagram: 56, facebook: 61 } },
+                ]
+            },
+            {
+                username: "sam_j_1989",
+                name: "Sam Jones",
+                screenTime: [
+                    { date: "2019-06-11", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 10 } },
+                    { date: "2019-06-13", usage: { mapMyRun: 0, whatsApp: 0, facebook: 0, safari: 16 } },
+                    { date: "2019-06-14", usage: { mapMyRun: 55, whatsApp: 40, facebook: 0, safari: 31 } },
+                ]
+            }
+        ];
+        expect(getScreentimeAlertList(users, "2019-06-14")).toEqual(["beth_1234", "sam_j_1989"]);
+    });
+});
