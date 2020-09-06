@@ -1,4 +1,47 @@
-const { sumMultiples, areWeCovered, createMatrix } = require("../challenges/exercise006");
+const {
+    sumMultiples,
+    areWeCovered,
+    createMatrix,
+    isValidDNA,
+    getComplementaryDNA,
+    isItPrime
+} = require("../challenges/exercise006");
+
+describe("isValidDNA", () => {
+    test("return error if not passed an argument", () => {
+        expect(() => {
+            isValidDNA();
+        }).toThrow("str is required");
+    });
+    test("return error if not passed a string.", () => {
+        expect(() => {
+            isValidDNA(['foo']);
+        }).toThrow("a string is required");
+
+        expect(() => {
+            isValidDNA(7);
+        }).toThrow("a string is required");
+
+        expect(() => {
+            isValidDNA(true);
+        }).toThrow("a string is required");
+    });
+    test("returns true if string has only  C, G, T or A", () => {
+        expect(isValidDNA("CGTATAG")).toBe(true);
+        expect(isValidDNA("CGT")).toBe(true);
+        expect(isValidDNA("C")).toBe(true);
+    });
+    test("returns false if string has characters other than  C, G, T or A", () => {
+        expect(isValidDNA(" ")).toBe(false);
+        expect(isValidDNA("RE")).toBe(false);
+        expect(isValidDNA("TUI")).toBe(false);
+        expect(isValidDNA("TGCW")).toBe(false);
+        expect(isValidDNA("CGTA CG")).toBe(false);
+    });
+    test("return false if string is lowercase", () => {
+        expect(isValidDNA('cgTA')).toBe(false);
+    });
+});
 
 describe("createMatrix", () => {
     it("returns a matrix of 1 * 1 when passed 1", () => {
