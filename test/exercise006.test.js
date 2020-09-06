@@ -119,7 +119,39 @@ describe("isValidDNA", () => {
 });
 
 describe("createMatrix", () => {
-    it("returns a matrix of 1 * 1 when passed 1", () => {
+    test("return error if not passed an argument", () => {
+        expect(() => {
+            createMatrix();
+        }).toThrow("n is required");
+        expect(() => {
+            createMatrix(3);
+        }).toThrow("fill is required");
+    });
+    test("retunr error if not passed a number in n.", () => {
+        expect(() => {
+            createMatrix("foo", "foo");
+        }).toThrow("a number is required");
+
+        expect(() => {
+            createMatrix(true, "foo");
+        }).toThrow("a number is required");
+
+        expect(() => {
+            createMatrix(['foo'], "foo");
+        }).toThrow("a number is required");
+    });
+    test("return error if n is either a fraction, negative number or a zero", () => {
+        expect(() => {
+            createMatrix(2.5, "foo");
+        }).toThrow("n must be a positive integer");
+        expect(() => {
+            createMatrix(-2, "foo");
+        }).toThrow("n must be a positive integer");
+        expect(() => {
+            createMatrix(0, "foo");
+        }).toThrow("n must be a positive integer");
+    });
+    test("return a matrix of 1 * 1 when passed 1", () => {
         const result = createMatrix(1, "foo");
         const expected = [["foo"]]; // <= complex values
         expect(result).toEqual(expected);
