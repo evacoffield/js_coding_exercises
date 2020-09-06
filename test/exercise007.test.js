@@ -6,6 +6,63 @@ const {
     findWinner
 } = require("../challenges/exercise007");
 
+describe("findWinner", () => {
+    test("return null if there is no winner", () => {
+        const board = [ ["X", null, "0"],
+                        ["X", "0", "0"],
+                        [null, null, "X"]];
+    expect(findWinner(board)).toBe(null);
+    });
+    test("check if the winner is player X", () => {
+        const board = [ ["X", "X", "X"],
+                        ["X", null, "0"],
+                        [null, "0", "0"]];
+    expect(findWinner(board)).toBe("X");
+    });
+    test("check if the winner is player X", () => {
+        const board = [ ["X", "0", null],
+                        ["X", null, "0"],
+                        ["X", null, "0"]];
+    expect(findWinner(board)).toBe("X");
+    });
+    test("check if the winner is player X", () => {
+        const board = [ ["X", null, "X"],
+                        [null, "0", "0"],
+                        ["X", "X", "X"]];
+    expect(findWinner(board)).toBe("X");
+    });
+    test("check if the winner is player X", () => {
+        const board = [ ["X", null, "X"],
+                        ["0", "X", "0"],
+                        ["X", null, "0"]];
+    expect(findWinner(board)).toBe("X");
+    });
+    test("check if the winner is player 0", () => {
+        const board = [ ["X", "0", null],
+                        ["X", "0", "0"],
+                        [null, "0", "X"]];
+    expect(findWinner(board)).toBe("0");
+    });
+    test("check if the winner is player 0", () => {
+        const board = [ ["X", "0", "0"],
+                        ["X", null, "0"],
+                        [null, "0", "0"]];
+    expect(findWinner(board)).toBe("0");
+    });
+    test("check if the winner is player 0", () => {
+        const board = [ ["X", null, "X"],
+                        [null, "0", "0"],
+                        ["0", "0", "0"]];
+    expect(findWinner(board)).toBe("0");
+    });
+    test("check if the winner is player 0", () => {
+        const board = [ ["X", null, "0"],
+                        ["X", "0", "0"],
+                        ["0", null, "X"]];
+    expect(findWinner(board)).toBe("0");
+    });
+});
+
 describe("hexToRGB", () => {
     test("return error if not passed an argument", () => {
         expect(() => { hexToRGB(); }).toThrow("hexStr is required");
