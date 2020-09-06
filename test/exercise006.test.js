@@ -190,6 +190,9 @@ describe("sumMultiples", () => {
 });
 
 describe("areWeCovered", () => {
+    test("return error if an argument is empty", () => {
+        expect(() => { areWeCovered(); }).toThrow("staff is required");
+    });
     test("it return false if there are no staff at all", () => {
         expect(areWeCovered([], "Sunday")).toBe(false);
         expect(areWeCovered([], "Monday")).toBe(false);
@@ -207,5 +210,16 @@ describe("areWeCovered", () => {
             { name: "jess", rota: ["Monday", "Tuesday"] },
         ];
         expect(areWeCovered(staff, "Wednesday")).toBe(false);
+    });
+    test("return error if day is not a string", () => {
+        const staff = [
+            { name: "gary", rota: ["Monday", "Tuesday"] },
+            { name: "paul", rota: ["Monday", "Tuesday"] },
+            { name: "sally", rota: ["Monday", "Tuesday"] },
+            { name: "jess", rota: ["Monday", "Tuesday"] },
+        ];
+        expect(() => { areWeCovered(staff, 1); }).toThrow("day is required");
+        expect(() => { areWeCovered(staff, true); }).toThrow("day is required");
+        expect(() => { areWeCovered(staff, ['foo']); }).toThrow("day is required");
     });
 });
