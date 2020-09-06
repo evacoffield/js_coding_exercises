@@ -7,6 +7,43 @@ const {
     isItPrime
 } = require("../challenges/exercise006");
 
+describe("isItPrime", () => {
+    test("return error if not passed an argument", () => {
+        expect(() => {
+            isItPrime();
+        }).toThrow("n is required");
+    });
+    test("return error if not passed a number.", () => {
+        expect(() => {
+            isItPrime(['foo']);
+        }).toThrow("a number is required");
+
+        expect(() => {
+            isItPrime('foo');
+        }).toThrow("a number is required");
+
+        expect(() => {
+            isItPrime(true);
+        }).toThrow("a number is required");
+    });
+
+    test("returns true if the number is prime", () => {
+        expect(isItPrime(2)).toBe(true);
+        expect(isItPrime(7)).toBe(true);
+        expect(isItPrime(43)).toBe(true);
+    });
+
+    test("returns false if the number is NOT prime", () => {
+        expect(isItPrime(0)).toBe(false);
+        expect(isItPrime(1)).toBe(false);
+        expect(isItPrime(12)).toBe(false);
+        expect(isItPrime(100)).toBe(false);
+        expect(isItPrime(2000)).toBe(false);
+        expect(isItPrime(0.7)).toBe(false);
+        expect(isItPrime(-7)).toBe(false);
+    });
+});
+
 describe("getComplementaryDNA", () => {
     test("return error if not passed an argument", () => {
         expect(() => {
