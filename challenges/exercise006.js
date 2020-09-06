@@ -25,7 +25,7 @@ const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
   if (typeof str !== 'string') throw new Error("a string is required")
 
-  if (str.match(/[^GTCA]/)) {
+  if (str.match(/[^CGTA]/)) {
     return false;
   }
   return true;
@@ -38,6 +38,27 @@ const isValidDNA = str => {
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  if (typeof str !== 'string') throw new Error("a string is required")
+
+  function changeDNA(char) {
+    if (char === 'A') {
+      return 'T';
+    } else if (char === 'T') {
+      return 'A';
+    } else if (char === 'C') {
+      return 'G';
+    } else if (char === 'G') {
+      return 'C';
+    } else {
+      throw new Error("valid DNA is required");
+    }
+  }
+
+  let dna = '';
+  for (let i of str) {
+    dna += changeDNA(i);
+  }
+  return dna;
 };
 
 /**

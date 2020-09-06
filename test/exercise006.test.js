@@ -7,6 +7,44 @@ const {
     isItPrime
 } = require("../challenges/exercise006");
 
+describe("getComplementaryDNA", () => {
+    test("return error if not passed an argument", () => {
+        expect(() => {
+            getComplementaryDNA();
+        }).toThrow("str is required");
+    });
+    test("return error if not passed a string.", () => {
+        expect(() => {
+            getComplementaryDNA(['foo']);
+        }).toThrow("a string is required");
+
+        expect(() => {
+            getComplementaryDNA(7);
+        }).toThrow("a string is required");
+
+        expect(() => {
+            getComplementaryDNA(true);
+        }).toThrow("a string is required");
+    });
+    test("returns complimentary DNA if string has only  C, G, T or A", () => {
+        expect(getComplementaryDNA("TATATA")).toBe("ATATAT");
+        expect(getComplementaryDNA("GCT")).toBe("CGA");
+        expect(getComplementaryDNA("TG")).toBe("AC");
+        expect(getComplementaryDNA("CGTA")).toBe("GCAT");
+        expect(getComplementaryDNA("TTTCCAAA")).toBe("AAAGGTTT");
+    });
+    test("returns error if string has characters other than  C, G, T or A", () => {
+        expect(() => {
+            getComplementaryDNA('TGCW');
+        }).toThrow("valid DNA is required");
+    });
+    test("returns error if string is lowercase", () => {
+        expect(() => {
+            getComplementaryDNA('cgTA');
+        }).toThrow("valid DNA is required");
+    });
+});
+
 describe("isValidDNA", () => {
     test("return error if not passed an argument", () => {
         expect(() => {
