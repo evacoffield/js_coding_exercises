@@ -6,6 +6,29 @@ const {
     findWinner
 } = require("../challenges/exercise007");
 
+describe("hexToRGB", () => {
+    test("return error if not passed an argument", () => {
+        expect(() => { hexToRGB(); }).toThrow("hexStr is required");
+    });
+    test("return error if an argument is not a string", () => {
+        expect(() => { hexToRGB(456); }).toThrow("hexStr must be a string");
+        expect(() => { hexToRGB(['foo']); }).toThrow("hexStr must be a string");
+        expect(() => { hexToRGB(true); }).toThrow("hexStr must be a string");
+    });
+    test("return error if invalid hex string passed", () => {
+        expect(() => { hexToRGB('#trtrtr'); }).toThrow("a valid hex color code is required");
+        expect(() => { hexToRGB('******'); }).toThrow("a valid hex color code is required");
+        expect(() => { hexToRGB('ff1133'); }).toThrow("a valid hex color code is required");
+    });
+    test("return RGB values for valid hex colour codes", () => {
+        expect(hexToRGB('#FF1166')).toBe("rgb(255,17,102)");
+        expect(hexToRGB('#000000')).toBe("rgb(0,0,0)");
+        expect(hexToRGB('#FFFFFF')).toBe("rgb(255,255,255)");
+        expect(hexToRGB('#ffcDDD')).toBe("rgb(255,205,221)");
+        expect(hexToRGB('#09aaBB')).toBe("rgb(9,170,187)");
+    });
+});
+
 describe("sumDigits", () => {
     test("return error if not passed an argument", () => {
         expect(() => { sumDigits(); }).toThrow("n is required");
