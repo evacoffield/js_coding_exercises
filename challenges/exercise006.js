@@ -70,20 +70,20 @@ const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
   if (typeof n !== 'number') throw new Error("a number is required");
 
-   // If n is less than 2 or not an integer then by definition cannot be prime.
-   if (n < 2) {return false}
-   if (n != Math.round(n)) {return false}
+  // If n is less than 2 or not an integer then by definition cannot be prime.
+  if (n < 2) { return false }
+  if (n != Math.round(n)) { return false }
 
-   // Now assume that n is prime, we will try to prove that it is not.
-   let isPrime = true;
+  // Now assume that n is prime, we will try to prove that it is not.
+  let isPrime = true;
 
-   // Now check every whole number from 2 to the square root of n. If any of these divides n exactly, n cannot be prime.
-   for (let i = 2; i <= Math.sqrt(n); i++) {
-      if (n % i == 0) {isPrime = false}
-   }
+  // Now check every whole number from 2 to the square root of n. If any of these divides n exactly, n cannot be prime.
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    if (n % i == 0) { isPrime = false }
+  }
 
-   // Finally return whether n is prime or not.
-   return isPrime;
+  // Finally return whether n is prime or not.
+  return isPrime;
 };
 
 /**
@@ -102,7 +102,7 @@ const createMatrix = (n, fill) => {
   if (fill === undefined) throw new Error("fill is required");
   if (typeof n !== 'number') throw new Error("a number is required");
   if (Math.sign(n) === -1 || Math.sign(n) === 0 || n % 1 !== 0) throw new Error("n must be a positive integer");
-  
+
   const matrix = [];
   // create parent array
   for (let i = 0; i < n; i++) {
@@ -141,7 +141,7 @@ const areWeCovered = (staff, day) => {
   staff.forEach(n => {
     let days = n.rota
     if (days.includes(day)) {
-      count ++;
+      count++;
     }
   })
   if (count < 3) {
@@ -149,7 +149,7 @@ const areWeCovered = (staff, day) => {
   } else {
     return true;
   }
-  
+
 };
 
 module.exports = {
