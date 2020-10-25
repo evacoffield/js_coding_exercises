@@ -12,10 +12,10 @@ const findNextNumber = (nums, n) => {
 
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
-  var countForZero = 0;
-  var countForOne = 0;
+  let countForZero = 0;
+  let countForOne = 0;
 
-  for (var i = 0, length = str.length; i < length; i++) {
+  for (let i = 0, length = str.length; i < length; i++) {
     if (str[i] === '0') {
       countForZero++;
     }
@@ -27,16 +27,6 @@ const count1sand0s = str => {
     0: countForZero,
     1: countForOne
   };
-
-  // Count the number of 0s and 1s in a string without using a counter
-  // var sum = 0;
-  // for (var i = 0, length = str.length; i < length; i++) {
-  //   sum += Number(str[i]);
-  // }
-  // return {
-  //   1 : str.length - sum,
-  //   0 : sum
-  // };
 }
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");

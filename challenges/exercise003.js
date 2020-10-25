@@ -59,7 +59,6 @@ function duplicateNumbers(arr1, arr2) {
     return arr2.indexOf(val) != -1;
   });
   duplicates = [...new Set(numbers)].sort();
-  console.log(duplicates);
   return (duplicates)
 }
 
