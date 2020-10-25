@@ -28,7 +28,6 @@ function camelCaseWords(words) {
 
 function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
-  // Your code here!
   let counter = 0;
   for (let key in people) {
     let subjectsArray = people[key].subjects.length;
