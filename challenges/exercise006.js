@@ -134,22 +134,14 @@ const areWeCovered = (staff, day) => {
   if (day === undefined) throw new Error("day is required");
   if (typeof day !== 'string') throw new Error("day is required");
 
-  if (staff.length === 0) {
-    return false;
-  }
   let count = 0;
-  staff.forEach(n => {
-    let days = n.rota
+  staff.forEach(person => {
+    let days = person.rota
     if (days.includes(day)) {
       count++;
     }
   })
-  if (count < 3) {
-    return false;
-  } else {
-    return true;
-  }
-
+  return (count >= 3);
 };
 
 module.exports = {

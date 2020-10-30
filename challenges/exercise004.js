@@ -120,10 +120,14 @@ function getCities(users) {
   // using map, get each item in users
   // MAP items and return city names of each user
   // return the result of map
-  const cities = users.map(function (item) {
-    const cityName = item.data.city.displayName;
-    return cityName;
-  });
+
+  return users.map(item => item.data.city.displayName);
+
+  // Map example before refactoring
+  // const cities = users.map(function (item) {
+  //   const cityName = item.data.city.displayName;
+  //   return cityName;
+  // });
 
   // ForEach example
   // const cities = [];
