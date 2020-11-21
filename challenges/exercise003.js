@@ -1,10 +1,12 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
-  let squares = nums;
-  for (let key in squares) {
-    squares[key] = Math.pow(squares[key], 2);
-  }
-  return squares;
+  return nums.map(num => (num*num));
+  // getSquares example before refactoring
+  // const squares = nums;
+  // for (let key in squares) {
+  //   squares[key] = Math.pow(squares[key], 2);
+  // }
+  // return squares;
 }
 
 function camelCaseWords(words) {
