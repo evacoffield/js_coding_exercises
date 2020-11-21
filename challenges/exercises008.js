@@ -26,3 +26,13 @@ function processData(inputString) {
 }
 processData("Welcome to 30 Days of Code!");
 
+
+function simpleArraySum(ar) {
+    //const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    //return (ar.reduce(reducer));
+    return ar.reduce((a, b) => a + b)
+
+}
+
+simpleArraySum([1, 2, 3, 4, 10, 11]);
+
