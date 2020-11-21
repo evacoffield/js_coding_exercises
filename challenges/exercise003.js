@@ -31,11 +31,15 @@ function camelCaseWords(words) {
 function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
   let counter = 0;
-  for (let key in people) {
-    let subjectsArray = people[key].subjects.length;
-    counter += subjectsArray;
-  }
+  people.forEach(person => counter += person.subjects.length);
   return counter;
+  //getTotalSubjects example before refactoring
+  // let counter = 0;
+  // for (let key in people) {
+  //   let subjectsArray = people[key].subjects.length;
+  //   counter += subjectsArray;
+  // }
+  // return counter;
 }
 
 function checkIngredients(menu, ingredient) {
